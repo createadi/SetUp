@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:setup/constants/const.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:setup/widgets/photo.dart';
+import 'package:setup/widgets/AppButton.dart';
 
 class WelcomeScreen extends StatelessWidget {
   static const String id = 'welcome_screen';
@@ -15,16 +17,7 @@ class WelcomeScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Container(
-                  margin: EdgeInsets.only(top: 20.h),
-                  child: Center(
-                    child: Image(
-                      image: AssetImage('resources/images/welcome.png'),
-                      width: 282.w,
-                      height: 264.h,
-                    ),
-                  ),
-                ),
+                Photo('resources/images/welcome.png'),
                 SizedBox(
                   height: 37.h,
                 ),
@@ -43,7 +36,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 Center(
                   child: Text(
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
+                    'Prioritize Your Tasks and ease your lifestyle!',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20.sp,
@@ -56,61 +49,19 @@ class WelcomeScreen extends StatelessWidget {
                   height: 27.h,
                 ),
                 Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Create Account',
-                      style: TextStyle(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                        Color(0xFFFFDE69),
-                      ),
-                      foregroundColor: MaterialStateProperty.all(
-                        Color(0xFF1B1A40),
-                      ),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                      ),
-                    ),
+                  child: AppButton(
+                    'Create Account',
+                    kYellowColor,
+                    kDarkBg,
+                    kYellowColor,
                   ),
                 ),
                 SizedBox(
                   height: 27.h,
                 ),
                 Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Login',
-                      style: TextStyle(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                        kDarkBg,
-                      ),
-                      foregroundColor: MaterialStateProperty.all(
-                        Color(0xFFFFDE69),
-                      ),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          side: BorderSide(
-                            color: Color(0xFFFFDE69),
-                            width: 3.w,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  child:
+                      AppButton('Login', kDarkBg, kYellowColor, kYellowColor),
                 ),
                 SizedBox(
                   height: 27.h,
