@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:setup/constants/const.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:setup/widgets/photo.dart';
-import 'package:setup/widgets/AppButton.dart';
+import 'package:setup/widgets/ActionButton.dart';
 
 class WelcomeScreen extends StatelessWidget {
   static const String id = 'welcome_screen';

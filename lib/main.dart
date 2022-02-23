@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       builder: () {
         return MaterialApp(
           home: SplashScreen(),
-          initialRoute: WelcomeScreen.id,
+          initialRoute: LoginScreen.id,
           routes: {
             SplashScreen.id: (context) => SplashScreen(),
             WelcomeScreen.id: (context) => WelcomeScreen(),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:setup/constants/const.dart';
 import 'package:setup/widgets/photo.dart';
-import 'package:setup/widgets/AppButton.dart';
+import 'package:setup/widgets/ActionButton.dart';
 import 'package:setup/widgets/InputBox.dart';
 
 class RegistrationScreen extends StatelessWidget {
@@ -22,7 +22,6 @@ class RegistrationScreen extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                // color: kYellowColor,
                 width: 375.w,
                 height: 533.h,
                 decoration: BoxDecoration(
@@ -34,11 +33,11 @@ class RegistrationScreen extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(25.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Expanded(
-                        child: Row(
+                  child: Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
@@ -47,76 +46,77 @@ class RegistrationScreen extends StatelessWidget {
                                   fontWeight: FontWeight.w700, fontSize: 30.sp),
                             ),
                             Icon(
-                              Icons.close,
+                              Icons.cancel_outlined,
                               color: kRedColor,
-                              size: 50.h,
+                              size: 40.h,
                             )
                           ],
                         ),
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      Expanded(
-                        child: InputBox('Your Name'),
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      Expanded(
-                        child: InputBox('Email Address'),
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      Expanded(
-                        child: InputBox('Password'),
-                      ),
-                      SizedBox(
-                        height: 17.h,
-                      ),
-                      Expanded(
-                        child: AppButton(
-                            'Register', kDarkBg, kYellowColor, kDarkBg),
-                      ),
-                      SizedBox(
-                        height: 12.h,
-                      ),
-                      Center(
-                        child: Text(
-                          'By signing up with SetUp you agree to our terms and condtions',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 14.sp, fontWeight: FontWeight.w600),
+                        SizedBox(
+                          height: 10.h,
                         ),
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      Center(
-                        child: Wrap(
-                          verticalDirection: VerticalDirection.down,
-                          children: [
-                            Text(
-                              "Already have an account? ",
-                              style: TextStyle(
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.w600,
-                                color: kDarkBg,
-                              ),
-                            ),
-                            Text(
-                              "Login",
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w700,
-                                color: kRedColor,
-                              ),
-                            ),
-                          ],
+                        Expanded(
+                          child: InputBox('Your Name', Icons.remove_red_eye),
                         ),
-                      ),
-                    ],
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Expanded(
+                          child:
+                              InputBox('Email Address', Icons.remove_red_eye),
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Expanded(
+                          child: InputBox('Password', Icons.lock),
+                        ),
+                        SizedBox(
+                          height: 17.h,
+                        ),
+                        Expanded(
+                          child: AppButton(
+                              'Register', kDarkBg, kYellowColor, kDarkBg),
+                        ),
+                        SizedBox(
+                          height: 12.h,
+                        ),
+                        Center(
+                          child: Text(
+                            'By signing up, you agree to our terms and condtions',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 14.sp, fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Center(
+                          child: Wrap(
+                            verticalDirection: VerticalDirection.up,
+                            children: [
+                              Text(
+                                "Already have an account? ",
+                                style: TextStyle(
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w600,
+                                  color: kDarkBg,
+                                ),
+                              ),
+                              Text(
+                                "Login",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w700,
+                                  color: kRedColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

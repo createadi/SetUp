@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:setup/constants/const.dart';
 import 'package:setup/widgets/photo.dart';
-import 'package:setup/widgets/AppButton.dart';
+import 'package:setup/widgets/ActionButton.dart';
 import 'package:setup/widgets/InputBox.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool switchState = false;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +28,6 @@ class LoginScreen extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                // color: kYellowColor,
                 width: 375.w,
                 height: 533.h,
                 decoration: BoxDecoration(
@@ -46,9 +52,9 @@ class LoginScreen extends StatelessWidget {
                                   fontWeight: FontWeight.w700, fontSize: 30.sp),
                             ),
                             Icon(
-                              Icons.close,
+                              Icons.cancel_outlined,
                               color: kRedColor,
-                              size: 50.h,
+                              size: 40.h,
                             )
                           ],
                         ),
@@ -57,37 +63,61 @@ class LoginScreen extends StatelessWidget {
                         height: 10.h,
                       ),
                       Expanded(
-                        child: InputBox('Email Address'),
+                        child: InputBox(
+                          'Email Address',
+                          Icons.remove_red_eye,
+                        ),
                       ),
                       SizedBox(
                         height: 10.h,
                       ),
                       Expanded(
-                        child: InputBox('Password'),
+                        child: InputBox(
+                          'Password',
+                          Icons.lock,
+                        ),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
                             children: [
-                              Checkbox(value: false, onChanged: (bool) {}),
+                              Switch(
+                                value: switchState,
+                                activeColor: switchState
+                                    ? Colors.green[900]
+                                    : Colors.white,
+                                activeTrackColor: switchState
+                                    ? Colors.lightGreen
+                                    : Colors.white,
+                                inactiveThumbColor:
+                                    switchState ? Colors.white : kRedColor,
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    switchState = value;
+                                  });
+                                },
+                              ),
                               Text(
                                 'Remember Me',
                                 style: TextStyle(
                                   color: kDarkBg,
-                                  fontSize: 12.sp,
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
                             ],
                           ),
-                          Text(
-                            'Forgot Password?',
-                            style: TextStyle(
-                              color: kDarkBg,
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w400,
+                          TextButton(
+                            child: Text(
+                              'Forgot Password?',
+                              style: TextStyle(
+                                color: kDarkBg,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
+                            onPressed: () {},
                           ),
                         ],
                       ),
@@ -95,6 +125,7 @@ class LoginScreen extends StatelessWidget {
                         height: 17.h,
                       ),
                       Expanded(
+                        flex: 1,
                         child: AppButton(
                             'Register', kDarkBg, kYellowColor, kDarkBg),
                       ),
@@ -106,7 +137,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       Center(
                         child: Wrap(
-                          verticalDirection: VerticalDirection.down,
+                          verticalDirection: VerticalDirection.up,
                           children: [
                             Text(
                               "Don't have an account? ",
@@ -119,7 +150,7 @@ class LoginScreen extends StatelessWidget {
                             Text(
                               "Register",
                               style: TextStyle(
-                                fontSize: 14.sp,
+                                fontSize: 16.sp,
                                 fontWeight: FontWeight.w700,
                                 color: kRedColor,
                               ),
